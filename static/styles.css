@@ -1,14 +1,17 @@
 body {
     background-color: #9a8f77;
-    font-family: Arial, sans-serif;
+    font-family: Arial, serif;
     color: #333;
 }
 
 h1 {
     color: #c44516;
     text-align: center;
+    
 }
 
 .btn {
-    color:rgb(11, 11, 11);
+    color:rgb(0);
+    background-color: #c44516;
+    border: none;
 }
