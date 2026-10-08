@@ -23,6 +23,10 @@
             <h3 class="mt-4">Response:</h3>
             <div class="alert alert-secondary">{{ result }}</div>
         {% endif %}
+
+        {% if image %}
+            <img src="data:image/png;base64,{{ image }}" width="400">
+        {% endif %}
     </div>
 </body>
 </html>
