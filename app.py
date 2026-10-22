@@ -75,11 +75,30 @@ EXTENDED LABEL:
                 max_output_tokens=350
             )
 
+            
             result = response.output_text
+
+            image_prompt = f"""
+            Create a realistic museum exhibition photograph
+            based on this artwork label:
+
+            {result}
+
+            Show ONLY the artwork in the museum setting
+            described in the label.
+
+            Respect the object's dimensions, scale, and materials.
+            Keep the original object recognizable.
+
+            Do not include any text, writing, labels,
+            letters, or typography in the image.
+            The wall label will be displayed separately
+            on the website.
+            """
 
             image_response = openai.images.generate(
                 model="gpt-image-1",
-                prompt=result,
+                prompt=image_prompt,
                 size="1024x1024",
                 quality="low"
             )
@@ -88,6 +107,7 @@ EXTENDED LABEL:
 
         except Exception as e:
             result = f"Error: {str(e)}"
+
 
     return render_template("index.html", result=result, image=image)
 
