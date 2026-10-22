@@ -19,6 +19,10 @@ I think a language model is so fluent in International Art English because this 
 
 Language models learn from large amounts of text, so they become good at recognizing and reproducing these patterns. They don't necessarily need to understand the artistic importance of an object to generate a convincing interpretation of it.
 
+This also made me question how much of the meaning we associate with art comes from the object itself and how much comes from the context surrounding it. It doesn't matter what you're presenting, as long as you find a way to give it the importance and the right meaning, it will look more relevant/important to people. 
+
+I think the AI's ability to imitate this way of writing is both funny and interesting because it shows how artistic language can sometimes become predictable, even when it is trying to sound original.
+
 
 
 # User Guide
