@@ -32,11 +32,12 @@
             </button>
         </form>
 
-        <div id="loading" style="display:none;" class="mt-5">
-            <p>CURATING YOUR EXHIBITION</p>
-            <div class="loading-line"></div>
-            <p class="mt-3"><i>Please remain in the gallery.</i></p>
-        </div>
+        <section id="loading" class="loading-gallery mt-5" hidden aria-labelledby="loading-title">
+            <div class="loading-spinner" aria-hidden="true"></div>
+            <h2 id="loading-title">CURATING YOUR EXHIBITION</h2>
+            <p id="loading-message" class="loading-message" role="status" aria-live="polite" aria-atomic="true"></p>
+            <p class="loading-note">Your label and image are being created. This may take a minute or two.</p>
+        </section>
 
         {% if error %}
         <div class="alert alert-secondary" role="alert">{{ error }}</div>
@@ -60,8 +61,50 @@
     </div>
 
     <script>
-        document.querySelector("form").addEventListener("submit", function() {
-            document.getElementById("loading").style.display = "block";
+        const form = document.querySelector("form");
+        const submitButton = form.querySelector('button[type="submit"]');
+        const loading = document.getElementById("loading");
+        const loadingMessage = document.getElementById("loading-message");
+        const originalButtonText = submitButton.textContent;
+        const messages = [
+            "Convincing the curator that your object belongs in a museum.",
+            "Adding an entirely unnecessary amount of theory.",
+            "Finding a plinth worthy of your everyday masterpiece.",
+            "Debating the cultural significance of a very ordinary object.",
+            "Adjusting the gallery lights by an imperceptible amount.",
+            "Asking an imaginary art historian for a second opinion.",
+            "Making room for one more groundbreaking interpretation.",
+            "Please remain in the gallery. Great absurdity takes time."
+        ];
+        let messageTimer;
+
+        form.addEventListener("submit", function(event) {
+            if (submitButton.disabled) {
+                event.preventDefault();
+                return;
+            }
+
+            let messageIndex = 0;
+            loading.hidden = false;
+            loadingMessage.textContent = messages[messageIndex];
+            form.setAttribute("aria-busy", "true");
+            submitButton.disabled = true;
+            submitButton.textContent = "Curating your exhibition…";
+
+            messageTimer = window.setInterval(function() {
+                messageIndex = (messageIndex + 1) % messages.length;
+                loadingMessage.textContent = messages[messageIndex];
+            }, 6000);
+        });
+
+        // Restore the form when the browser returns to a cached page via Back.
+        window.addEventListener("pageshow", function() {
+            window.clearInterval(messageTimer);
+            loading.hidden = true;
+            loadingMessage.textContent = "";
+            form.removeAttribute("aria-busy");
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
         });
     </script>
 </body>
