@@ -1,8 +1,7 @@
-
-![The Ordinary Museum app screenshot](static/everydayObject.png)
-
 # The Ordinary Museum
 The Ordinary Museum is a web application that takes the user input of an everyday object and turns it into contemporary artworks. Users describe something ordinary, such as a water bottle, a hair tie or anything that comes to mind and the application uses the OpenAI API to generate a fictional museum wall label and an image of the object displayed in an exhibition.
+
+![The Ordinary Museum app screenshot](static/everydayObject.png)
 
 # International Art English (IAE) Features and Prompt Rules
 I focused on the exaggerated language often used in contemporary art writing, as discussed by Alix Rule and David Levine in International Art English.
