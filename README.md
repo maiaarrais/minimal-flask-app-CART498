@@ -1,3 +1,48 @@
+
+![The Ordinary Museum app screenshot](static/everydayObject.png)
+
+# The Ordinary Museum
+The Ordinary Museum is a web application that takes the user input of an everyday object and turns it into contemporary artworks. Users describe something ordinary, such as a water bottle, a hair tie or anything that comes to mind and the application uses the OpenAI API to generate a fictional museum wall label and an image of the object displayed in an exhibition.
+
+# International Art English (IAE) Features and Prompt Rules
+I focused on the exaggerated language often used in contemporary art writing, as discussed by Alix Rule and David Levine in International Art English.
+
+The main features were: 
+1. Abstract and theoretical language: Instead of explaining an object in simple terms, the AI uses concepts such as identity and materiality to give it a deeper meaning.
+2. Unnecessarily complicated descriptions: The AI uses longer sentences and theoretical terminology to make ordinary objects seem of greater importance. 
+3. Treating everyday things as important artworks: The language gives objects an exaggerated sense of cultural and artistic importance.
+
+I translated these features into explicit rules in my developer prompt. The AI is instructed to use exaggerated International Art English, describe the original object accurately, and treat it as an important piece of contemporary art.
+
+# Reflection
+I think a language model is so fluent in International Art English because this type of writing follows recognizable patterns. Even when the language sounds complex, it often repeats similar structures and finds easy ways of connecting ideas. 
+
+Language models learn from large amounts of text, so they become good at recognizing and reproducing these patterns. They don't necessarily need to understand the artistic importance of an object to generate a convincing interpretation of it.
+
+
+
+# User Guide
+
+Using The Ordinary Museum is simple:
+
+Open the web application.
+
+Enter a description of an everyday object into the text field. For example, "A blue reusable water bottle with scratches on the side."
+
+Click Enter the Exhibition.
+
+The application generates a fictional museum wall label and an image of the object displayed as contemporary art.
+
+View the artwork and its interpretation together, with the image on the left and the wall label on the right.
+
+Enter another object to create a new exhibition.
+
+The application uses Flask for the website, HTML and CSS for the layout, and the OpenAI API for generating the text and image.
+
+Because both the label and image are generated using AI, the results may vary each time, even when the same object is submitted.
+
+
+
 # minimal-flask-app
 Minimal code for a Flask app making calls to the OpenAI API.
 
